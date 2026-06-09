@@ -1,0 +1,17 @@
+{
+    "name": "joyo-cdn-upload",
+    "title": "i18n:joyo-cdn-upload.title",
+    "package_version": 2,
+    "version": "1.0.0",
+    "author": "joyo",
+    "description": "i18n:joyo-cdn-upload.description",
+    "scripts": {
+        "tsc": "tsc"
+    },
+    "contributions": {
+        "builder": "./dist/builder.js"
+    },
+    "dependencies": {
+        "@types/node": "^14.5.2"
+    }
+}

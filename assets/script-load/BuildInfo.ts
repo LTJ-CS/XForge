@@ -1,4 +1,4 @@
-import { BuildEnv, BuildNum } from "./BuildData";
+import { BuildNum, BuildEnv } from "./BuildData";
 
 /**
  * 构建版本信息

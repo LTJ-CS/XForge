@@ -8,7 +8,7 @@ import { warn } from "cc";
 import { sys } from "cc";
 import { SubContextShowType } from "../Sdk";
 import { app } from "db://assets/app/app";
-import PlatformUtils, { Platform } from "../PlatformUtils";
+import PlatformUtils, { Platform } from "../../../script-load/PlatformUtils";
 
 const tt = window["tt"];
 

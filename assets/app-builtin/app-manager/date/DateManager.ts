@@ -4,7 +4,9 @@ const { ccclass, property } = _decorator;
 @ccclass('DateManager')
 export class DateManager extends BaseManager {
     // [无序] 加载完成时触发
-    protected onLoad() { }
+    protected onLoad() {
+        console.log('DateManager onLoad');
+     }
 
     // [无序] 自身初始化完成, init执行完毕后被调用
     protected onInited() { }

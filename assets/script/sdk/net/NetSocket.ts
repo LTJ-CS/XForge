@@ -1,6 +1,6 @@
 import NetWeb from "./platform/NetWeb";
 import NetWx from "./platform/NetWx";
-import PlatformUtils, { Platform } from "../PlatformUtils";
+import PlatformUtils, { Platform } from "../../../script-load/PlatformUtils";
 
 export type ConnectParams = {
     url: string;

@@ -1,7 +1,5 @@
 import { game } from "cc";
-import { checkIsTest, getEnvConfig } from "../build_config/Env";
-import BuildInfo from "../BuildInfo";
-import PlatformUtils, { Platform } from "../sdk/PlatformUtils";
+import { getEnvConfig, checkIsTest } from "../../script-load/build_config/Env";
 
 /**
  * @desc 定义错误等级

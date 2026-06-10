@@ -1,5 +1,5 @@
-import { getEnvConfig } from "../../script/build_config/Env";
-import PlatformUtils, { Platform } from "./PlatformUtils";
+import { getEnvConfig } from "../../script-load/build_config/Env";
+import PlatformUtils, { Platform } from "../../script-load/PlatformUtils";
 import Sdk from "./Sdk";
 import WxSdk, { AdTag } from "./wx/WxSdk";
 

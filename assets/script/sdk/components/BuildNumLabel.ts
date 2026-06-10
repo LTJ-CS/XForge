@@ -1,6 +1,6 @@
 import { Label } from "cc";
 import { _decorator, Component } from "cc";
-import BuildInfo from "../../../script/BuildInfo";
+import BuildInfo from "../../../script-load/BuildInfo";
 
 const { ccclass, property } = _decorator;
 

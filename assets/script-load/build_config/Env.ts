@@ -1,7 +1,7 @@
 // 打包使用的环境值
 import BuildInfo from "../BuildInfo";
-import PlatformUtils from "../sdk/PlatformUtils";
-import { ENV, LoginPlatform } from "./EnvConf";
+import PlatformUtils, { Platform } from "../PlatformUtils";
+import { ENV, EnvMap, LoginPlatform } from "./EnvConf";
 
 // 本地构建时使用的服务区环境值
 // 可以手动修改，来进行本地打包和运行测试

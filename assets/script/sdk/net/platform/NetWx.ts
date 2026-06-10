@@ -1,4 +1,4 @@
-import PlatformUtils, { Platform } from "../../PlatformUtils";
+import PlatformUtils, { Platform } from "../../../../script-load/PlatformUtils";
 import { ConnectParams, NetCloseCode, NetStatus } from "../NetSocket";
 
 /**

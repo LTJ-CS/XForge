@@ -1,5 +1,6 @@
 import PlatformUtils, { Platform } from "../../../../script-load/PlatformUtils";
-import { ConnectParams, NetCloseCode, NetStatus } from "../NetSocket";
+import type { ConnectParams } from "../NetDefine";
+import { NetCloseCode, NetStatus } from "../NetDefine";
 
 /**
  * 微信长链接处理

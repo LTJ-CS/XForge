@@ -1,5 +1,6 @@
 import { sys } from "cc";
-import { ConnectParams, NetCloseCode, NetStatus } from "../NetSocket";
+import type { ConnectParams, NetStatus } from "../NetDefine";
+import { NetCloseCode } from "../NetDefine";
 
 // 原生应用在 cocos creator 2.4（包含）以前打包，需要在原生（安卓）平台使用 pem 证书，这里提供一个固定的加载地址，防止打破通用组件的依赖关系
 const nativePemFilePath = "resources/ssl/cacert.pem";

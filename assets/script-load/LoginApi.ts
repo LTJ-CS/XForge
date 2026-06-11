@@ -1,9 +1,10 @@
-import { LocalEnum } from "../app-builtin/app-model/config.local";
 import { app } from "../app/app";
 import { HttpResp } from "../script/sdk/Http";
 import Sdk from "../script/sdk/Sdk";
 import StringUtils from "../script/utils/StringUtils";
 import { getEnvConfig, getPlatform } from "./build_config/Env";
+
+const BetaOpenIdKey = "betaOpenId";
 
 export class LoginResponse {
     public uid: string;
@@ -37,10 +38,10 @@ export class LoginApi {
      */
     public betaLogin(): Promise<LoginResponse> {
         // 先读取本地缓冲的 Open_id, 以解决登陆过期后, 会重新生成 Open_id, 导致帐号发生变化的问题
-        let open_id = app.lib.storage.get(LocalEnum.betaOpenId);
+        let open_id = app.lib.storage.get(BetaOpenIdKey);
         if (!open_id) {
             open_id = "test_" + StringUtils.randomString(6);
-            app.lib.storage.set(LocalEnum.betaOpenId, open_id);
+            app.lib.storage.set(BetaOpenIdKey, open_id);
         }
         return this.login(open_id);
     }
@@ -127,4 +128,3 @@ export class LoginApi {
         });
     }
 }
-

@@ -2,7 +2,8 @@ import { JsonAsset, Label, ProgressBar, _decorator } from 'cc';
 import BaseAppInit from '../../../extensions/app/assets/base/BaseAppInit';
 import { app } from '../../app/app';
 import PlatformUtils, { Platform } from '../../script-load/PlatformUtils';
-import { LoginApi, LoginResponse } from '../../script-load/LoginApi';
+import { LoginApi } from '../../script-load/LoginApi';
+import type { LoginResponse } from '../../script-load/LoginApi';
 const { ccclass, property } = _decorator;
 
 @ccclass('AppInit')
@@ -17,23 +18,19 @@ export class AppInit extends BaseAppInit {
     * 获得用户资源总量，这里返回几，就需要用户自行调用几次nextInit
     */
     protected getUserAssetNum(): number {
-        return 4;
+        return 1;
     }
 
-    protected async onLoad() {
+    protected async onUserInit() {
         //第一步加载子包代码
         await this.loadScriptBundle();
-        this.nextInit();
         //第二步加载表格数据
         await this.loadTables();
-        this.nextInit();
         //第三步中台登陆
         await this.beginLogin();
-        this.nextInit();
         //第四步请求玩家信息
         await this.requestBaseInfo();
         this.nextInit();
-        this.startInit();
     }
 
     private async loadScriptBundle() {
@@ -87,7 +84,9 @@ export class AppInit extends BaseAppInit {
     }
 
     // BaseAppInit中使用start方法作为初始化入口，如果重写start方法，请注意调用父类方法
-    protected start() { }
+    protected start() {
+        super.start();
+    }
 
     protected onProgress(completed: number, total: number) {
         const progress = completed / total;

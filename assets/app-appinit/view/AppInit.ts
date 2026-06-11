@@ -3,7 +3,6 @@ import BaseAppInit from '../../../extensions/app/assets/base/BaseAppInit';
 import { app } from '../../app/app';
 import PlatformUtils, { Platform } from '../../script-load/PlatformUtils';
 import { LoginApi, LoginResponse } from '../../script-load/LoginApi';
-import Report from '../../script/sdk/report/report-common';
 const { ccclass, property } = _decorator;
 
 @ccclass('AppInit')
@@ -80,7 +79,10 @@ export class AppInit extends BaseAppInit {
 
 
     private async requestBaseInfo(): Promise<boolean> {
-        Report.initTA();
+        //这里可以请求玩家信息等基础数据，等后续完善接口后再添加相关代码
+
+        //暂时不上报数据，等后续完善上报功能后再打开
+        // Report.initTA();
         return true;
     }
 

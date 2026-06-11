@@ -22,19 +22,13 @@ export class AppInit extends BaseAppInit {
     }
 
     protected async onUserInit() {
-        //第一步加载子包代码
-        await this.loadScriptBundle();
-        //第二步加载表格数据
+        //加载表格数据
         await this.loadTables();
-        //第三步中台登陆
+        //中台登陆
         await this.beginLogin();
-        //第四步请求玩家信息
+        //请求玩家信息
         await this.requestBaseInfo();
         this.nextInit();
-    }
-
-    private async loadScriptBundle() {
-        await app.manager.loader.loadBundleAsync({ bundle: 'script' });
     }
 
     private async loadTables() {

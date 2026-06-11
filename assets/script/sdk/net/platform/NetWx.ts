@@ -1,4 +1,4 @@
-import PlatformUtils, { Platform } from "../../../../script-load/PlatformUtils";
+import PlatformUtils, { Platform } from "../../../../script/PlatformUtils";
 import type { ConnectParams } from "../NetDefine";
 import { NetCloseCode, NetStatus } from "../NetDefine";
 

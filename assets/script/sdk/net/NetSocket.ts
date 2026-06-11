@@ -1,6 +1,6 @@
 import NetWeb from "./platform/NetWeb";
 import NetWx from "./platform/NetWx";
-import PlatformUtils, { Platform } from "../../../script-load/PlatformUtils";
+import PlatformUtils, { Platform } from "../../../script/PlatformUtils";
 import type { ConnectParams, NetConnector, NetStatus } from "./NetDefine";
 export type { ConnectParams, NetCloseEvent, NetConnector } from "./NetDefine";
 export { NetCloseCode, NetStatus } from "./NetDefine";

@@ -1,8 +1,8 @@
 import { DEV } from "cc/env";
 import { app } from "db://assets/app/app";
-import { getEnvConfig } from "db://assets/script-load/build_config/Env";
-import BuildInfo from "db://assets/script-load/BuildInfo";
-import PlatformUtils, { Platform } from "db://assets/script-load/PlatformUtils";
+import { getEnvConfig } from "db://assets/script/build_config/Env";
+import BuildInfo from "db://assets/script/BuildInfo";
+import PlatformUtils, { Platform } from "db://assets/script/PlatformUtils";
 
 export enum ReportKey {
     // ========= 雷霆需求的打点 =========

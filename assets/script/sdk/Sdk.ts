@@ -2,16 +2,16 @@
  * 简游SDK cocos creator 开发扩展包
  */
 import { game, Game, sys } from "cc";
-import { getEnvConfig } from "../../script-load/build_config/Env";
-import { HttpBaseParam } from "../../script-load/build_config/EnvConf";
+import { getEnvConfig } from "../../script/build_config/Env";
+import { HttpBaseParam } from "../../script/build_config/EnvConf";
 import Http, { HttpResp } from "./Http";
-import PlatformUtils, { Platform } from "../../script-load/PlatformUtils";
+import PlatformUtils, { Platform } from "../../script/PlatformUtils";
 import WxSdk from "./wx/WxSdk";
 import TtSdk from "./tt/TTSdk";
 import { DEV } from "cc/env";
 import protobuf from "protobufjs";
 import { app } from "../../app/app";
-import BuildInfo from "../../script-load/BuildInfo";
+import BuildInfo from "../../script/BuildInfo";
 import StringUtils from "../utils/StringUtils";
 import Log from "../log/Logger";
 import { AckCtor, Client2ServerRequest } from "./TypeConstraints";

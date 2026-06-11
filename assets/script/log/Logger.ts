@@ -1,5 +1,5 @@
 import { game } from "cc";
-import { getEnvConfig, checkIsTest } from "../../script-load/build_config/Env";
+import { getEnvConfig, checkIsTest } from "../../script/build_config/Env";
 
 /**
  * @desc 定义错误等级

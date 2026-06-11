@@ -1,5 +1,5 @@
 import { common } from "protobufjs";
-import BuildInfo from "../../script-load/BuildInfo";
+import BuildInfo from "../../script/BuildInfo";
 import Log from "../log/Logger";
 import { NetCloseCode, NetStatus } from "../sdk/net/NetSocket";
 import { ENetKey, Net } from "./net";

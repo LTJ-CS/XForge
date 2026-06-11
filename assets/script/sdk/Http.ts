@@ -1,6 +1,6 @@
 import { game } from "cc";
 import { DEV } from "cc/env";
-import PlatformUtils, { Platform } from "../../script-load/PlatformUtils";
+import PlatformUtils, { Platform } from "../../script/PlatformUtils";
 
 // 网络请求
 

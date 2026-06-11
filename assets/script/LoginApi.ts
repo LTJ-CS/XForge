@@ -1,7 +1,7 @@
 import { app } from "../app/app";
-import { HttpResp } from "../script/sdk/Http";
-import Sdk from "../script/sdk/Sdk";
-import StringUtils from "../script/utils/StringUtils";
+import { HttpResp } from "./sdk/Http";
+import Sdk from "./sdk/Sdk";
+import StringUtils from "./utils/StringUtils";
 import { getEnvConfig, getPlatform } from "./build_config/Env";
 
 const BetaOpenIdKey = "betaOpenId";

@@ -5,7 +5,7 @@ import { DEV } from "cc/env";
 import CRC32 from "crc-32"
 import NetSocket, { NetCloseCode, NetStatus } from "../sdk/net/NetSocket";
 import NetHeartBeat from "./net-heart-beat";
-import { checkIsTest } from "../../script-load/build_config/Env";
+import { checkIsTest } from "../../script/build_config/Env";
 import Log from "../log/Logger";
 import CocosUtils from "../utils/CocosUtils";
 import protobuf from "protobufjs";

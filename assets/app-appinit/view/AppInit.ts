@@ -1,9 +1,9 @@
 import { JsonAsset, Label, ProgressBar, _decorator } from 'cc';
 import BaseAppInit from '../../../extensions/app/assets/base/BaseAppInit';
 import { app } from '../../app/app';
-import PlatformUtils, { Platform } from '../../script-load/PlatformUtils';
-import { LoginApi } from '../../script-load/LoginApi';
-import type { LoginResponse } from '../../script-load/LoginApi';
+import PlatformUtils, { Platform } from '../../script/PlatformUtils';
+import { LoginApi } from '../../script/LoginApi';
+import type { LoginResponse } from '../../script/LoginApi';
 const { ccclass, property } = _decorator;
 
 @ccclass('AppInit')

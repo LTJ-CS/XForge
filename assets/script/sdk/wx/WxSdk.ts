@@ -58,28 +58,6 @@ export default class WxSdk {
             });
         }
 
-        // 创建推荐位实例，提前初始化
-        // if (wx.createGameIcon) {
-        //     this.gameIconAd = wx.createGameIcon(
-        //         {
-        //             adUnitId: "PBgAAvMtdTk_v2ho",
-        //             count: 1,
-        //             style: [],
-        //         },
-        //         {
-        //             appNameHidden: false, // boolean; //游戏名称是否隐藏
-        //             color: "#713A0CC8", // string; //游戏名称的颜色色值
-        //             size: 60, // number; //游戏icon的宽高值
-        //             borderWidth: 5, // number; //游戏icon的border尺寸
-        //             borderColor: "#ffffff77", // string; //游戏icon的border颜色色值
-        //             left: 0, // number; //游戏icon的X轴坐标
-        //             top: 200, // number; //游戏icon的Y轴坐标
-        //         }
-        //     );
-        // }
-        // this.showGameIcon(); // 默认展示 icon 广告
-
-        this.authorize(); // TODO 获取授权
         // 开启分享菜单
         console.info("-- 开启转发 --");
         // 注册监听onShow onHide

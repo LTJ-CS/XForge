@@ -1,6 +1,6 @@
 import { sys } from "cc";
 import { SubContextShowType } from "../Sdk";
-import { checkIsTest } from "../../../script-load/build_config/Env";
+import 'minigame-api-typings';
 
 // 广告标签，用于广告唯一ID和上报记录使用
 export enum AdTag {
@@ -19,10 +19,7 @@ export default class WxSdk {
     public static onHideFunction: (() => void)[] = []; // onHide时执行方法
     public static onShowOnceFunction: (() => void)[] = []; // onShowOnce时执行方法
     public static onHideOnceFunction: (() => void)[] = []; // onHideOnce时执行方法
-    // private static gameIconAd: WechatMinigame.GameIcon = null; // 推荐广告
-    private static gameIconAdShown = false; // 推荐广告是否已经展示
 
-    private static gameClubButton = null; // 推荐广告是否已经展示
     private static _isWx = sys.platform == sys.Platform.WECHAT_GAME && !window["qq"];
     private static miniGameCommon = null;
     private static hasOnReadyMinigame = false;
@@ -202,19 +199,6 @@ export default class WxSdk {
         });
     }
 
-    // 获取用户授权
-    public static async authorize(): Promise<void> {
-        // wx.authorize({
-        //   scope: "scope.userLocation",
-        //   success: (data) => {
-        //     console.log("authorize success:", data);
-        //   },
-        //   fail: (err) => {
-        //     console.log("authorize fail:", err);
-        //   },
-        // });
-    }
-
     public static getPlaform() {
         const deviceInfo = wx.getDeviceInfo()
         return deviceInfo.platform;
@@ -276,50 +260,6 @@ export default class WxSdk {
                 fail: console.error,
                 complete: console.log,
             });
-        } catch (error) { }
-    }
-
-    public static createGameClub() {
-        if (!this._isWx) {
-            return;
-        }
-        try {
-            let sysInfo = wx.getSystemInfoSync();
-            console.log("sysInfo = ", sysInfo);
-            this.gameClubButton = window["wx"].createGameClubButton({
-                icon: "dark",
-                style: {
-                    left: sysInfo.windowWidth - 50,
-                    top: sysInfo.safeArea.top + 140,
-                    width: 40,
-                    height: 40,
-                },
-            });
-            return this.gameClubButton;
-        } catch (error) { }
-    }
-
-    public static gameClubShow() {
-        if (!this._isWx) {
-            return;
-        }
-        try {
-            console.log("gameClubShow ###");
-            if (this.gameClubButton) {
-                this.gameClubButton.show();
-            }
-        } catch (error) { }
-    }
-
-    public static gameClubHide() {
-        if (!this._isWx) {
-            return;
-        }
-        try {
-            console.log("gameClubHide ###");
-            if (this.gameClubButton) {
-                this.gameClubButton.hide();
-            }
         } catch (error) { }
     }
 

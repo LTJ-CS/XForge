@@ -15,7 +15,7 @@ import BuildInfo from "../../script-load/BuildInfo";
 import StringUtils from "../utils/StringUtils";
 import Log from "../log/Logger";
 import { AckCtor, Client2ServerRequest } from "./TypeConstraints";
-import User from "../../app-builtin/app-model/store.user";
+import { Net } from "../net/net";
 
 /*
  *SDK 包含方法目录
@@ -566,18 +566,6 @@ export default class Sdk {
         }
     }
 
-    //获取菜单按钮
-    public static GetMenuBottom():number
-    {
-        if (PlatformUtils.isPlatform(Platform.wx) || PlatformUtils.isPlatform(Platform.xhs)) {
-            return WxSdk.MenuRect().bottom;
-        } else if(PlatformUtils.isPlatform(Platform.tt))
-        {
-            return TtSdk.MenuRect().bottom;
-        }
-        return 0;
-    }
-
     /** 获取操作系统信息 */
     public static GetSystemInfo():{system:string,platform:string}{
        if(PlatformUtils.isPlatform(Platform.wx))
@@ -613,90 +601,6 @@ export default class Sdk {
         if (version.startsWith("16")) {
             console.log("是 iOS 16.x 版本");
             return true;
-        }
-        return false;
-    }
-
-    /**
-     * 下载文件
-     * @param remoteUrl 远程文件路径
-     * @param success 成功回调
-     * @param fail 失败回调
-     */
-    public static downloadFile(remoteUrl:string,success:(filePath:string)=>void,fail:(err:any)=>void)
-    {
-        if (PlatformUtils.isPlatform(Platform.wx)) {
-           wx.downloadFile({
-               url: remoteUrl,
-               timeout: 30000, // 30秒超时
-               success: (result) => {
-                   if (result.statusCode === 200) {
-                       success?.(result.tempFilePath);
-
-                   } else {
-                       Log.Warn(`下载返回HTTP错误状态码: ${result.statusCode}`);
-                       fail?.(result.statusCode);
-                   }
-               },
-               fail: (res) => {
-                   Log.Warn(`下载网络错误: ${res.errMsg}`);
-                   fail?.(res.errMsg || '网络错误');
-               }
-           })
-        } else if(PlatformUtils.isPlatform(Platform.tt))
-        {
-            tt.downloadFile({
-                url: remoteUrl,
-                success: (result) => {
-                    if (result.statusCode === 200) {
-                        success?.(result.tempFilePath);
-                    } else {
-                        Log.Warn(`下载返回HTTP错误状态码: ${result.statusCode}`);
-                        fail?.(result.statusCode);
-                    }
-                },
-                fail: (res) => {
-                    Log.Warn(`下载网络错误: ${res.errMsg}`);
-                    fail?.(res.errMsg || '网络错误');
-                }
-            })
-        }else{
-            fail?.(404);
-        }
-    }
-
-    /**
-     * 同步访问文件
-     * @param remoteUrl 远程文件路径
-     */
-    public static accessFileSync(remoteUrl:string):boolean
-    {
-        if (PlatformUtils.isPlatform(Platform.wx)) {
-            if(wx.getFileSystemManager)
-            {
-                try {
-                    const fs = wx.getFileSystemManager();
-                    fs.accessSync(remoteUrl);
-                    return true;
-                } catch(e) {
-                    console.error(e)
-                    return false;
-                }
-            }
-
-        } else if(PlatformUtils.isPlatform(Platform.tt))
-        {
-            if(tt.getFileSystemManager)
-            {
-                try {
-                    const fs = tt.getFileSystemManager();
-                    fs.accessSync(remoteUrl);
-                    return true;
-                } catch(e) {
-                    console.error(e)
-                    return false;
-                }
-            }
         }
         return false;
     }

@@ -19,7 +19,6 @@ export default class TtSdk {
     private static onRewardVideoAdFail: () => void = null; // 激励视频失败回调
     //@ts-ignore
     private static bannerAd: tt.BannerAd = null; // banner 广告
-    private static onRewardBannerAdSuccess: () => void = null; // 激励视频成功回调
     private static onRewardBannerAdFail: () => void = null; // 激励视频失败回调
     //@ts-ignore
     private static interstitialAd: tt.InterstitialAd = null; // 插屏广告
@@ -58,22 +57,9 @@ export default class TtSdk {
                 console.log("[tt] showShareMenu 调用完成");
             },
         });
-
-        tt.onAudioInterruptionBegin(()=>{
-            console.log("-- 音频中断开始 --")
-            if (this.onAudioInterruptionBeginFunction) {
-                this.onAudioInterruptionBeginFunction.forEach((i) => i());
-            }
-        })
-        tt.onAudioInterruptionEnd(()=>{
-            console.log("-- 音频中断结束 --")
-            if (this.onAudioInterruptionEndFunc) {
-                this.onAudioInterruptionEndFunc.forEach((i) => i());
-            }
-        });
     }
 
-    public static onShow(callBack) {
+    public static onShow() {
         // callback: (res: {
         //     /** 场景值*/
         //     scene: string;
@@ -978,12 +964,6 @@ export default class TtSdk {
             this.onAudioInterruptionEndFunc.push(func);
         }
     }
-    // 获取菜单按钮的坐标
-    public static MenuRect()
-    {
-        return tt.getMenuButtonBoundingClientRect();
-    }
-
 
     //////////////////////抖音排行榜//////////////////////////////
     /** 判断是否需要显示好友排行 */

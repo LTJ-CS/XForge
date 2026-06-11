@@ -9,10 +9,11 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
+    "crc-32": "^1.2.2",
     "eslint": "^8.34.0",
+    "minigame-api-typings": "^3.8.20",
     "protobufjs": "^7.2.5",
-    "protobufjs-cli": "^1.1.2",
-    "crc-32": "^1.2.2"
+    "protobufjs-cli": "^1.1.2"
   },
   "scripts": {
     "cli": "npx --registry=https://registry.npmmirror.com @gamex/cc-cli@latest",

@@ -1,0 +1,38 @@
+declare class ThinkingAnalyticsAPI {
+  constructor(config);
+  init(): void;
+  track(eventName: string): void;
+  track(eventName: string, properties): void;
+  track(eventName: string, properties, time): void;
+  track(eventName: string, properties, time, onComplete): void;
+  track(taEvent): void;
+  trackUpdate(taEvent): void;
+  trackFirstEvent(taEvent): void;
+  trackOverwrite(taEvent): void;
+  timeEvent(eventName: string): void;
+  login(accoundId: string): void;
+  logout(): void;
+  setSuperProperties(properties): void;
+  unsetSuperProperty(properties): void;
+  clearSuperProperties(): void;
+  userSet(properties): void;
+  userSetOnce(properties): void;
+  userAppend(properties): void;
+  userAdd(properties): void;
+  userUnset(property: string): void;
+  userDel(): void;
+  authorizeOpenID(distinctId: string): void;
+  identify(distinctId: string): void;
+  initInstance(name: string): ThinkingAnalyticsAPI;
+  initInstance(name: string, config): ThinkingAnalyticsAPI;
+  lightInstance(name: string);
+  setDynamicSuperProperties(properties): void;
+  getDeviceId(callback?): string;
+  getDistinctId(callback?): string;
+  getAccountId(callback?): string;
+  getPresetProperties(callback?);
+  enableTracking(enabled: boolean): void;
+  optOutTracking(): void;
+  optOutTrackingAndDeleteUser(): void;
+  optInTracking(): void;
+}

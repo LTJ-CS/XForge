@@ -14,6 +14,8 @@ export type IMusicNames = IMusicName[]
 export type IEffectName = "never"
 export type IEffectNames = IEffectName[]
 
+import config_local from '../app-model/config.local'
+import store_table from '../app-model/store.table'
 import store_user from '../app-model/store.user'
 import {LevelController} from '../app-controller/LevelController'
 import {DateManager} from '../app-manager/date/DateManager'
@@ -28,14 +30,14 @@ export type IApp = {
     Manager: {Date:Omit<typeof DateManager,keyof Component>,Event:Omit<typeof EventManager,keyof Component>,Loader:Omit<typeof LoaderManager,keyof Component>,Sound:Omit<typeof SoundManager,keyof Component>,Timer:Omit<typeof TimerManager,keyof Component>,UI:Omit<typeof UIManager,keyof Component>},
     manager: {date:Omit<DateManager,keyof Component>,event:Omit<EventManager,keyof Component>,loader:Omit<LoaderManager,keyof Component>,sound:Omit<SoundManager<IEffectName,IMusicName>,keyof Component>,timer:Omit<TimerManager,keyof Component>,ui:Omit<UIManager<IViewName,IMiniViewName>,keyof Component>},
     data: {},
-    config: {}
-    store: {user:IReadOnly<store_user>}
+    config: {local:IReadOnly<config_local>}
+    store: {table:IReadOnly<store_table>,user:IReadOnly<store_user>}
 }
 
 function init(){
-if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.config, {})
+if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.config, {local:new config_local()})
 if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.data, {})
-if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.store, {user:new store_user()})
+if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.store, {table:new store_table(),user:new store_user()})
 
 if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.Controller, {Level:LevelController})
 if(!EDITOR||!EDITOR_NOT_IN_PREVIEW) Object.assign(app.controller, {level:new LevelController()})
